@@ -30,6 +30,11 @@
     &__descr {
         font-size: 14px;
         line-height: 18px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5; 
+        white-space: pre-wrap;
     }
     &__btns {
         a:nth-child(1) {
