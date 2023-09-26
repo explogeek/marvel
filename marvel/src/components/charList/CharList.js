@@ -63,10 +63,10 @@ class CharList extends Component {
 
 const View = ({chars}) => {
 
-    const content = chars.map(({thumbnail, name}) => {
+    const content = chars.map(({thumbnail, name, id}) => {
         const imgStyle = thumbnail === MarvelService.NOT_FOUND_IMG? {objectFit: "contain"} : {};
         return (
-            <li className="char__item" key={crypto.randomUUID()}>
+            <li className="char__item" key={id}>
                 <img src={thumbnail} alt={name} style={imgStyle}/>
                 <div className="char__name">{name}</div>
             </li>

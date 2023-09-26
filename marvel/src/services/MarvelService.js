@@ -31,7 +31,8 @@ class MarvelService {
             description: char.description ? char.description : "One of the Marvel characters",
             thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
             homepage: char.urls[0].url,
-            wiki: char.urls[1].url
+            wiki: char.urls[1].url,
+            id: char.id
         }
     }
 }
