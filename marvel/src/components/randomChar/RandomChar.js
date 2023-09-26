@@ -84,7 +84,7 @@ class RandomChar extends Component {
 const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki} = char;
 
-    const imgStyle = thumbnail === MarvelService.NOT_FOUND_IMG? {objectFit: "contain"} : {};
+    const imgStyle = thumbnail === MarvelService.NOT_FOUND_IMG? {objectFit: "unset"} : {};
 
     return (
         <div className="randomchar__block">

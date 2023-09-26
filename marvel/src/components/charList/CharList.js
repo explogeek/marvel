@@ -46,7 +46,7 @@ class CharList extends Component {
         const {chars, loading, error} = this.state;
         const errorMessage = error ? <ErrorMessage /> : null;
         const spinner = loading ? <Spinner /> : null;
-        const content = !(loading || error) ?  <View chars={chars}/> : null;
+        const content = !(loading || error) ?  <View chars={chars} onCharSelected={this.props.onCharSelected}/> : null;
 
         return (
             <div className="char__list">
@@ -61,12 +61,12 @@ class CharList extends Component {
     }
 }
 
-const View = ({chars}) => {
+const View = ({chars, onCharSelected}) => {
 
     const content = chars.map(({thumbnail, name, id}) => {
-        const imgStyle = thumbnail === MarvelService.NOT_FOUND_IMG? {objectFit: "contain"} : {};
+        const imgStyle = thumbnail === MarvelService.NOT_FOUND_IMG? {objectFit: "unset"} : {};
         return (
-            <li className="char__item" key={id}>
+            <li className="char__item" key={id} onClick={() => onCharSelected(id)}>
                 <img src={thumbnail} alt={name} style={imgStyle}/>
                 <div className="char__name">{name}</div>
             </li>
