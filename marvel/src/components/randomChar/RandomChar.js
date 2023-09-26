@@ -75,9 +75,8 @@ class RandomChar extends Component {
 
 const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki} = char;
-    const NOT_FOUND_IMG = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
 
-    const imgStyle = thumbnail === NOT_FOUND_IMG? {objectFit: "contain"} : {};
+    const imgStyle = thumbnail === MarvelService.NOT_FOUND_IMG? {objectFit: "contain"} : {};
 
     return (
         <div className="randomchar__block">
