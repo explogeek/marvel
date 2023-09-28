@@ -4,6 +4,7 @@ class MarvelService {
     _apiBase = 'https://gateway.marvel.com:443/v1/public/';
     _apiKey = 'apikey=326b0cfee7c52294fae21c45017bcd06';
     static NOT_FOUND_IMG = "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
+    static _BASE_OFFSET = 210;
 
     getResource = async (url) => {
         let res = await fetch(url);
@@ -15,8 +16,8 @@ class MarvelService {
         return await res.json();
     }
 
-    getAllCharacters = async () => {
-        const res = await this.getResource(`${this._apiBase}characters?limit=9&offset=210&${this._apiKey}`);
+    getAllCharacters = async (offset = MarvelService._BASE_OFFSET) => {
+        const res = await this.getResource(`${this._apiBase}characters?limit=9&offset=${offset}&${this._apiKey}`);
         return res.data.results.map(this._transformCharacter);
     }
 
