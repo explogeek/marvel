@@ -17,6 +17,7 @@ class CharList extends Component {
     marvelService = new MarvelService();
 
     componentDidMount() {
+        // this.foo.bar = 0; // to crash Component
         this.updateChars();
     }
 
